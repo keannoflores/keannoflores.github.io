@@ -1,6 +1,6 @@
-// ============================================
+// =========================================
 // MOBILE MENU
-// ============================================
+// =========================================
 
 const menuToggle =
     document.getElementById("menuToggle");
@@ -9,8 +9,6 @@ const navLinks =
     document.getElementById("navLinks");
 
 
-// Open / close mobile menu
-
 menuToggle.addEventListener("click", function () {
 
     navLinks.classList.toggle("show");
@@ -18,7 +16,7 @@ menuToggle.addEventListener("click", function () {
 });
 
 
-// Close menu after clicking a link
+// Close menu when clicking a link
 
 const navItems =
     document.querySelectorAll("#navLinks a");
@@ -35,9 +33,9 @@ navItems.forEach(function (link) {
 });
 
 
-// ============================================
-// SCROLL REVEAL ANIMATION
-// ============================================
+// =========================================
+// SCROLL REVEAL
+// =========================================
 
 const revealElements =
     document.querySelectorAll(".reveal");
@@ -61,13 +59,11 @@ const revealObserver =
         },
 
         {
-            threshold: 0.15
+            threshold: 0.12
         }
 
     );
 
-
-// Observe every section
 
 revealElements.forEach(function (element) {
 
@@ -76,19 +72,18 @@ revealElements.forEach(function (element) {
 });
 
 
-// ============================================
+// =========================================
 // ACTIVE NAVIGATION
-// ============================================
+// =========================================
 
 const sections =
     document.querySelectorAll("section[id]");
-
 
 const navigationLinks =
     document.querySelectorAll("#navLinks a");
 
 
-const activeSectionObserver =
+const activeObserver =
     new IntersectionObserver(
 
         function (entries) {
@@ -133,18 +128,14 @@ const activeSectionObserver =
 
 sections.forEach(function (section) {
 
-    activeSectionObserver.observe(section);
+    activeObserver.observe(section);
 
 });
 
 
-// ============================================
+// =========================================
 // FOOTER YEAR
-// ============================================
+// =========================================
 
-const year =
-    document.getElementById("year");
-
-
-year.textContent =
+document.getElementById("year").textContent =
     new Date().getFullYear();
